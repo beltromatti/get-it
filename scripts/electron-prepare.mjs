@@ -49,7 +49,7 @@ function installedVersion(pkg) {
   }
 }
 
-const REQUIRED_CODEX_VERSION = process.env.CODEX_VERSION || "0.146.1";
+const REQUIRED_CODEX_VERSION = process.env.CODEX_VERSION || installedVersion("@openai/codex-sdk") || "0.146.1";
 // Pin the per-platform Claude tarballs to whatever @anthropic-ai/claude-code is
 // installed (its optionalDependencies are pinned to the exact same version), so
 // cross-target builds never fetch a mismatched binary. Falls back to a literal
