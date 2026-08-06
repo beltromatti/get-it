@@ -134,8 +134,15 @@ export function loadSettings(): AppSettings {
             ? Math.min(10, Math.floor(parsed.maxRetries))
             : env.maxRetries,
         provider: loadedProvider,
-        codexModelFast: typeof parsed.codexModelFast === "string" ? parsed.codexModelFast : env.codexModelFast,
-        codexModelSmart: typeof parsed.codexModelSmart === "string" ? parsed.codexModelSmart : env.codexModelSmart,
+        // Migrate gpt-5.5 to gpt-5.6 models (gpt-5.5 is deprecated)
+        codexModelFast: 
+          typeof parsed.codexModelFast === "string" && parsed.codexModelFast !== "gpt-5.5"
+            ? parsed.codexModelFast
+            : env.codexModelFast,
+        codexModelSmart: 
+          typeof parsed.codexModelSmart === "string" && parsed.codexModelSmart !== "gpt-5.5"
+            ? parsed.codexModelSmart
+            : env.codexModelSmart,
         codexEffortFast: typeof parsed.codexEffortFast === "string" ? parsed.codexEffortFast : env.codexEffortFast,
         codexEffortSmart: typeof parsed.codexEffortSmart === "string" ? parsed.codexEffortSmart : env.codexEffortSmart,
         geminiApiKey: typeof parsed.geminiApiKey === "string" ? parsed.geminiApiKey : env.geminiApiKey,
