@@ -175,10 +175,10 @@ function SettingsPanel({ refreshKey }: { refreshKey: string }) {
   const [maxRetries, setMaxRetries] = useState<number>(MAX_VIZ_GEN_RETRIES);
 
   // Managed specific
-  const [codexModelFast, setCodexModelFast] = useState<string>("gpt-5.5");
-  const [codexModelSmart, setCodexModelSmart] = useState<string>("gpt-5.5");
-  const [codexEffortFast, setCodexEffortFast] = useState<string>("low");
-  const [codexEffortSmart, setCodexEffortSmart] = useState<string>("high");
+  const [codexModelFast, setCodexModelFast] = useState<string>("gpt-5.6-luna");
+  const [codexModelSmart, setCodexModelSmart] = useState<string>("gpt-5.6-sol");
+  const [codexEffortFast, setCodexEffortFast] = useState<string>("high");
+  const [codexEffortSmart, setCodexEffortSmart] = useState<string>("medium");
   const [geminiApiKey, setGeminiApiKey] = useState<string>("");
   const [geminiModelFast, setGeminiModelFast] = useState<string>("gemini-flash-latest");
   const [geminiModelSmart, setGeminiModelSmart] = useState<string>("gemini-pro-latest");
@@ -557,10 +557,9 @@ function SettingsPanel({ refreshKey }: { refreshKey: string }) {
               onChange={setCodexModelFast}
               options={[
                 { value: "auto", label: "Auto (Let server decide)" },
-                { value: "gpt-4o-mini", label: "gpt-4o-mini" },
-                { value: "gpt-4o", label: "gpt-4o" },
-                { value: "o1-mini", label: "o1-mini" },
-                { value: "gpt-4", label: "gpt-4" },
+                { value: "gpt-5.6-luna", label: "gpt-5.6-luna (fastest, affordable)" },
+                { value: "gpt-5.6-terra", label: "gpt-5.6-terra (balanced)" },
+                { value: "gpt-5.6-sol", label: "gpt-5.6-sol (most capable)" },
                 { value: "gpt-5.5", label: "gpt-5.5" }
               ]}
             />
@@ -570,11 +569,10 @@ function SettingsPanel({ refreshKey }: { refreshKey: string }) {
               onChange={setCodexModelSmart}
               options={[
                 { value: "auto", label: "Auto (Let server decide)" },
-                { value: "gpt-5.5", label: "gpt-5.5" },
-                { value: "o1-preview", label: "o1-preview" },
-                { value: "o1-mini", label: "o1-mini" },
-                { value: "gpt-4o", label: "gpt-4o" },
-                { value: "gpt-4", label: "gpt-4" }
+                { value: "gpt-5.6-sol", label: "gpt-5.6-sol (most capable)" },
+                { value: "gpt-5.6-terra", label: "gpt-5.6-terra (balanced)" },
+                { value: "gpt-5.6-luna", label: "gpt-5.6-luna (fastest)" },
+                { value: "gpt-5.5", label: "gpt-5.5" }
               ]}
             />
           </div>
