@@ -92,6 +92,10 @@ const nextConfig: NextConfig = {
     "@openai/codex-sdk",
     "@openai/codex",
     "pdfkit",
+    // MathJax (LaTeX in imported Markdown) is a large CJS tree; resolve it
+    // from node_modules like pdfkit instead of inlining it into the bundle.
+    "mathjax-full",
+    "svg-to-pdfkit",
   ],
 };
 

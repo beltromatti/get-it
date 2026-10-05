@@ -11,7 +11,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Plus, Trash2, Send, MessageSquare, RefreshCw } from "lucide-react";
-import ReactMarkdown from "react-markdown";
+import Markdown from "@/components/Markdown";
 import type { ChatThread } from "@/lib/work-context-types";
 import { consumePrefill } from "./prefill";
 
@@ -345,7 +345,7 @@ function Bubble({
         {pulsing ? (
           content
         ) : (
-          <ReactMarkdown
+          <Markdown
             disallowedElements={["img"]}
             components={{
               p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
@@ -382,7 +382,7 @@ function Bubble({
             }}
           >
             {content}
-          </ReactMarkdown>
+          </Markdown>
         )}
       </div>
     </div>

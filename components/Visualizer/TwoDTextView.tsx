@@ -1,6 +1,6 @@
 "use client";
 
-import ReactMarkdown from "react-markdown";
+import Markdown from "@/components/Markdown";
 import { ExternalLink } from "lucide-react";
 import type { TwoDTextSpec } from "@/lib/schemas";
 
@@ -10,7 +10,7 @@ export default function TwoDTextView({ spec }: Props) {
   return (
     <div className="h-full w-full overflow-auto bg-[var(--surface-raised)] px-7 py-6 text-[var(--ink-700)]">
       <article className="prose prose-sm max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-[var(--ink-900)] prose-p:leading-relaxed prose-p:text-[var(--ink-700)] prose-strong:text-[var(--ink-900)] prose-a:text-[var(--accent-600)] prose-a:no-underline hover:prose-a:underline prose-li:text-[var(--ink-700)] prose-code:rounded prose-code:bg-[var(--surface-sunken)] prose-code:px-1 prose-code:py-0.5 prose-code:text-[var(--ink-900)] prose-code:before:content-none prose-code:after:content-none">
-        <ReactMarkdown>{spec.body_markdown}</ReactMarkdown>
+        <Markdown>{spec.body_markdown}</Markdown>
       </article>
       {spec.citations.length > 0 && (
         <div className="mt-8 border-t border-[var(--border-subtle)] pt-5">
